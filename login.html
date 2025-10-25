@@ -66,20 +66,18 @@
   <script>
     feather.replace();
 
-    // Simulated login
+    // If user is already logged in, skip login page
+    if (localStorage.getItem('userEmail')) {
+      window.location.href = 'index.html';
+    }
+
+    // Simulated login (fake authentication)
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      // You can replace this with a backend call later
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
       if (email && password) {
-        alert('Login successful!');
-        window.location.href = 'index.html'; // redirect to dashboard
-      } else {
-        alert('Please enter your credentials');
-      }
-    });
-  </script>
-</body>
-</html>
+        // Save login info to localStorage
+        localStorage.setItem('userE
+
