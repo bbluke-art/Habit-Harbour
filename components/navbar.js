@@ -58,7 +58,6 @@ class CustomNavbar extends HTMLElement {
             padding: 1rem;
           }
           .nav-links {
-            flex-direction: column;
             gap: 1rem;
           }
         }
