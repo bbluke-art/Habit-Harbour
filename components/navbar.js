@@ -58,20 +58,21 @@ class CustomNavbar extends HTMLElement {
             padding: 1rem;
           }
           .nav-links {
+            flex-direction: column;
             gap: 1rem;
           }
         }
       </style>
       <nav>
-        <a href="/" class="logo">
+        <a href="index.html" class="logo">
           <i data-feather="anchor"></i>
           HabitHarbor
         </a>
         <ul class="nav-links">
-          <li><a href="/"><i data-feather="home"></i> Dashboard</a></li>
-          <li><a href="habits.html">Habits</a></li>
-          <li><a href="stats.html">Statistics</a></li>
-          <li><a href="settings.html">Settings</a></li>
+          <li><a href="index.html"><i data-feather="home"></i> Dashboard</a></li>
+          <li><a href="habits.html"><i data-feather="list"></i> Habits</a></li>
+          <li><a href="stats.html"><i data-feather="bar-chart-2"></i> Statistics</a></li>
+          <li><a href="settings.html"><i data-feather="settings"></i> Settings</a></li>
         </ul>
         <div class="user-profile">
           <img src="http://static.photos/people/40x40/123" alt="User" class="avatar">
@@ -82,3 +83,4 @@ class CustomNavbar extends HTMLElement {
   }
 }
 customElements.define('custom-navbar', CustomNavbar);
+
