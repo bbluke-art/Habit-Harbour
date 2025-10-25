@@ -70,8 +70,8 @@ class CustomNavbar extends HTMLElement {
         <ul class="nav-links">
           <li><a href="/"><i data-feather="home"></i> Dashboard</a></li>
           <li><a <a href="habits.html">Habits</a>
-          <li><a href="/stats.html"><i data-feather="bar-chart-2"></i> Statistics</a></li>
-          <li><a href="/settings.html"><i data-feather="settings"></i> Settings</a></li>
+          <li><a <a href="stats.html">Statistics</a>
+          <li><a <a href="settings.html">Settings</a>
         </ul>
         <div class="user-profile">
           <img src="http://static.photos/people/40x40/123" alt="User" class="avatar">
