@@ -62,24 +62,58 @@ class CustomNavbar extends HTMLElement {
           }
         }
       </style>
+
       <nav>
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
           <i data-feather="anchor"></i>
           HabitHarbor
         </a>
         <ul class="nav-links">
-          <li><a href="index.html"><i data-feather="home"></i> Dashboard</a></li>
+          <li><a href="/"><i data-feather="home"></i> Dashboard</a></li>
           <li><a href="habits.html"><i data-feather="list"></i> Habits</a></li>
           <li><a href="stats.html"><i data-feather="bar-chart-2"></i> Statistics</a></li>
           <li><a href="settings.html"><i data-feather="settings"></i> Settings</a></li>
+          <li id="auth-link"></li>
         </ul>
-        <div class="user-profile">
+        <div class="user-profile" id="userProfile">
           <img src="http://static.photos/people/40x40/123" alt="User" class="avatar">
-          <span class="hidden md:inline text-gray-700">John Doe</span>
+          <span id="username" class="hidden md:inline text-gray-700"></span>
         </div>
       </nav>
     `;
+
+    this.updateAuthState();
+    feather.replace();
+  }
+
+  updateAuthState() {
+    const userEmail = localStorage.getItem('userEmail');
+    const authLink = this.shadowRoot.getElementById('auth-link');
+    const userProfile = this.shadowRoot.getElementById('userProfile');
+    const username = this.shadowRoot.getElementById('username');
+
+    if (userEmail) {
+      // ✅ Logged in
+      username.textContent = userEmail.split('@')[0]; // show name before "@"
+      authLink.innerHTML = `<a href="#" id="logoutBtn"><i data-feather="log-out"></i> Logout</a>`;
+      userProfile.style.display = "flex";
+
+      // Handle logout click
+      this.shadowRoot.getElementById('logoutBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('userEmail');
+        alert('You have been logged out.');
+        window.location.href = 'login.html';
+      });
+    } else {
+      // 🚪 Not logged in
+      username.textContent = '';
+      authLink.innerHTML = `<a href="login.html"><i data-feather="log-in"></i> Login</a>`;
+      userProfile.style.display = "none";
+    }
+
+    feather.replace();
   }
 }
-customElements.define('custom-navbar', CustomNavbar);
 
+customElements.define('custom-navbar', CustomNavbar);
