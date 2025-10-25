@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitHarbor ⚓</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 font-serif">Welcome to HabitHarbor ⚓</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Your personal dock for tracking progress and building better habits every day.</p>
+        </section>
+
+        <!-- Stats Overview -->
+        <section class="mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-700">Current Streak</h3>
+                        <i data-feather="zap" class="text-yellow-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-800">7 days</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div class="bg-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-700">Completion Rate</h3>
+                        <i data-feather="check-circle" class="text-green-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-800">82%</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 82%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-700">Habits Tracked</h3>
+                        <i data-feather="list" class="text-purple-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-800">5</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div class="bg-purple-500 h-2.5 rounded-full" style="width: 50%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habits List -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Your Habits</h2>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                    <i data-feather="plus" class="w-4 h-4"></i>
+                    Add Habit
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <div>
+                        <h3 class="font-semibold text-lg text-gray-800">Morning Meditation</h3>
+                        <p class="text-gray-500">Completed 5/7 days this week</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="check" class="text-green-500"></i>
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="edit-2" class="text-blue-500"></i>
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="trash-2" class="text-red-500"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <div>
+                        <h3 class="font-semibold text-lg text-gray-800">Drink 2L Water</h3>
+                        <p class="text-gray-500">Completed 7/7 days this week</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="check" class="text-green-500"></i>
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="edit-2" class="text-blue-500"></i>
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="trash-2" class="text-red-500"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <div>
+                        <h3 class="font-semibold text-lg text-gray-800">30 Min Workout</h3>
+                        <p class="text-gray-500">Completed 4/5 days this week</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="check" class="text-green-500"></i>
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="edit-2" class="text-blue-500"></i>
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                            <i data-feather="trash-2" class="text-red-500"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivational Quote -->
+        <section class="bg-blue-50 rounded-xl p-8 mb-12">
+            <div class="text-center max-w-3xl mx-auto">
+                <i data-feather="quote" class="text-blue-200 w-8 h-8 mx-auto mb-4"></i>
+                <p class="text-xl italic text-gray-700 mb-4">"We are what we repeatedly do. Excellence, then, is not an act, but a habit."</p>
+                <p class="text-gray-600 font-medium">— Aristotle</p>
+            </div>
+        </section>
+
+        <!-- Weekly Progress -->
+        <section>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Weekly Progress</h2>
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <div class="flex justify-between mb-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-700">Completion Trend</h3>
+                        <p class="text-gray-500">Your progress over the last 7 days</p>
+                    </div>
+                    <select class="bg-gray-100 border-0 rounded-lg px-3 py-1">
+                        <option>This Week</option>
+                        <option>Last Week</option>
+                        <option>Last 30 Days</option>
+                    </select>
+                </div>
+                <div class="h-64">
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <!-- Scripts -->
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        
+        // Initialize Vanta.js waves background for a section if needed
+        VANTA.WAVES({
+            el: "#vanta-bg",
+            color: 0x0066cc,
+            waveHeight: 20,
+            shininess: 50,
+            waveSpeed: 0.5,
+            zoom: 0.8
+        });
+    </script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+</body>
+</html>
