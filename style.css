@@ -1,0 +1,42 @@
+/* Custom CSS for HabitHarbor */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animation for habit completion */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.habit-complete {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Transition effects */
+.smooth-transition {
+    transition: all 0.3s ease;
+}
