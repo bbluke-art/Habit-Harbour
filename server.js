@@ -1,26 +1,22 @@
-// server.js
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Fix for ES module __dirname
+// Fix for ES modules (to get __dirname)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve all static files (HTML, CSS, JS, etc.)
-app.use(express.static(__dirname));
+// Serve all static files from the public folder
+app.use(express.static(path.join(__dirname, "public")));
 
-// Optional: an API endpoint example
-app.get("/api/hello", (req, res) => {
-  res.json({ message: "Hello from the HabitHarbor backend 👋" });
+// Example route (optional)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Fallback: always serve index.html for unknown routes (for SPAs)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+app.listen(PORT, () => {
+  console.log(`✅ Server running at http://localhost:${PORT}`);
 });
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
