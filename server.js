@@ -1,22 +1,20 @@
-import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
+// server.js
+const express = require('express');
+const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Fix for ES modules (to get __dirname)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Serve all static files from the public folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Example route (optional)
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+// Optional: handle unknown routes by redirecting to index.html
+// Useful if you want a fallback for the dashboard route or SPA-like behavior
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+// Listen on the port Render assigns, or fallback to 3000 locally
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`HabitHarbor server running on port ${port}`);
 });
