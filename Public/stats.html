@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitHarbor ⚓ - Statistics</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 font-serif">Your Statistics</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Statistics for each habit will be loaded here -->
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Morning Meditation</h2>
+                <div class="h-64 mb-4">
+                    <canvas id="meditationChart"></canvas>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p class="text-sm text-gray-600">Current Streak</p>
+                        <p class="text-xl font-bold text-blue-600">7 days</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="text-sm text-gray-600">Completion Rate</p>
+                        <p class="text-xl font-bold text-green-600">85%</p>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-lg">
+                        <p class="text-sm text-gray-600">Longest Streak</p>
+                        <p class="text-xl font-bold text-purple-600">21 days</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Drink 2L Water</h2>
+                <div class="h-64 mb-4">
+                    <canvas id="waterChart"></canvas>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p class="text-sm text-gray-600">Current Streak</p>
+                        <p class="text-xl font-bold text-blue-600">14 days</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="text-sm text-gray-600">Completion Rate</p>
+                        <p class="text-xl font-bold text-green-600">92%</p>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-lg">
+                        <p class="text-sm text-gray-600">Longest Streak</p>
+                        <p class="text-xl font-bold text-purple-600">30 days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        // Charts will be initialized in script.js
+    </script>
+</body>
+</html>
