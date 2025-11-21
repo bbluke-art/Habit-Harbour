@@ -76,7 +76,7 @@ class CustomNavbar extends HTMLElement {
           <li><a href="stats.html"><i data-feather="bar-chart-2"></i> Statistics</a></li>
           <li><a href="settings.html"><i data-feather="settings"></i> Settings</a></li>
           <li><a href="login.html"><i data-feather="log-in"></i> Login</a></li>
-          <li><a href="login.html" id="logoutLink"><i data-feather="log-out"></i> Logout</a></li>
+          <li><a href="#" id="logoutLink"><i data-feather="log-out"></i> Logout</a></li>
         </ul>
         <div class="user-profile">
           <img src="http://static.photos/people/40x40/123" alt="User" class="avatar">
@@ -84,15 +84,18 @@ class CustomNavbar extends HTMLElement {
         </div>
       </nav>
     `;
+
+    // Replace feather icons inside shadow DOM
+    feather.replace({ scope: this.shadowRoot });
+
+    // Logout functionality
+    const logoutLink = this.shadowRoot.querySelector("#logoutLink");
+    logoutLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.removeItem("user");
+      window.location.href = "/login.html";
+    });
   }
 }
 
 customElements.define('custom-navbar', CustomNavbar);
-
-
-const logoutLink = this.shadowRoot.querySelector("#logoutLink");
-logoutLink?.addEventListener("click", (e) => {
-  e.preventDefault();
-  localStorage.removeItem("user");
-  window.location.href = "/login.html";
-});
